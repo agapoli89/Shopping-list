@@ -91,6 +91,17 @@ body {
     background-position: center;
 }
 
+.list-panel--with-products {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: var(--lightgray);
+}
+
+.list-panel--with-products--li {
+    list-style: none;
+    font-size: 30px;
+}
+
 .summary {
     margin-left: 40px;
     margin-bottom: 20px;
@@ -103,6 +114,10 @@ body {
     position: fixed;
     bottom: 0;
     padding: 10px;
+}
+
+.hidden {
+    display: none;
 }
 
 @media (min-width: 500px) {

@@ -1,12 +1,10 @@
 import {Suggestions} from './Suggestions.js'
+import {Product} from './Product.js'
 
 export class Main {
     htmlElements = {
         addInput: document.getElementById('js-add-product-input'),
-        addBtn: document.getElementById('js-add-product-btn'),
-        addUl: document.getElementById('js-add-product-ul'),
-        addInfo: document.getElementById('js-add-product-ul'),
-        listImg: document.getElementById('js-list-panel--start'),
+        addBtn: document.getElementById('js-add-product-btn'),   
         listProducts: document.getElementById('js-list-panel--with-products'),
         numberToBuy: document.getElementById('js-number-to-buy'),
         numberInBasket: document.getElementById('js-number-in-basket'),
@@ -18,11 +16,13 @@ export class Main {
 
     init() {
         this.htmlElements.addInput.addEventListener('input', (event) => this.suggestions.searchProduct(event));
-        console.log(this.addInputValue);
-        
+        this.htmlElements.addBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            const product = new Product(this.htmlElements.addInput.value);
+            product.createProduct();            
+        });
     }
 
-    
 }
 
 const main = new Main();
