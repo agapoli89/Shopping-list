@@ -1,4 +1,6 @@
-class Main {
+import {Suggestions} from './Suggestions.js'
+
+export class Main {
     htmlElements = {
         addInput: document.getElementById('js-add-product-input'),
         addBtn: document.getElementById('js-add-product-btn'),
@@ -9,4 +11,19 @@ class Main {
         numberToBuy: document.getElementById('js-number-to-buy'),
         numberInBasket: document.getElementById('js-number-in-basket'),
     }
+    constructor() {
+        this.suggestions = new Suggestions();
+    }
+
+
+    init() {
+        this.htmlElements.addInput.addEventListener('input', (event) => this.suggestions.searchProduct(event));
+        console.log(this.addInputValue);
+        
+    }
+
+    
 }
+
+const main = new Main();
+main.init();
