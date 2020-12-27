@@ -98,8 +98,16 @@ body {
 }
 
 .list-panel--with-products--li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     list-style: none;
     font-size: 30px;
+}
+
+.icon {
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .summary {
@@ -118,6 +126,10 @@ body {
 
 .hidden {
     display: none;
+}
+
+.crossed-out {
+    text-decoration: line-through;
 }
 
 @media (min-width: 500px) {

@@ -19,6 +19,7 @@ export class Main {
         this.htmlElements.addBtn.addEventListener('click', (event) => {
             event.preventDefault();
             const product = new Product(this.htmlElements.addInput.value);
+            this.htmlElements.addInput.value = "";
             product.createProduct();            
         });
     }
