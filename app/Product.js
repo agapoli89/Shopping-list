@@ -24,13 +24,29 @@ export class Product {
         this.htmlElements.addUl.appendChild(product);
         product.children[0].children[0].addEventListener('click', this.putProductInBasket);
         product.children[0].children[1].addEventListener('click', this.delateProduct);
+
+        shoppingList.showShoppingList().push(product);
+        shoppingList.addDataIndex();
+        shoppingList.showListsLength();
     }
 
     putProductInBasket(e) {
         e.target.parentElement.parentElement.classList.toggle("crossed-out");
+
+        if (e.target.parentElement.parentElement.classList.contains("crossed-out")) {
+            shoppingList.showInTheBasketList().push(e.target);
+        } else {
+            console.log('takeFromBasket');
+        }
+        
+        shoppingList.showListsLength();
     }
 
     delateProduct(e) {
+        const index = e.target.parentElement.parentElement.dataset.index;
         e.target.parentElement.parentElement.remove();
+        shoppingList.showInTheBasketList().splice(index,1);
     }
 }
+
+const shoppingList = new ShoppingList();
