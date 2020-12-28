@@ -6,7 +6,6 @@ export class Main {
         addInput: document.getElementById('js-add-product-input'),
         addBtn: document.getElementById('js-add-product-btn'),   
         listProducts: document.getElementById('js-list-panel--with-products'),
-        numberToBuy: document.getElementById('js-number-to-buy'),
         numberInBasket: document.getElementById('js-number-in-basket'),
     }
     constructor() {

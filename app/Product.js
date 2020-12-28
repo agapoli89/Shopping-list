@@ -1,3 +1,5 @@
+import {ShoppingList} from './ShoppingList.js';
+
 export class Product {
     htmlElements = {
         listImg: document.getElementById('js-list-panel--start'),
@@ -11,6 +13,10 @@ export class Product {
     }
 
     createProduct() {
+        if (!this.name) {
+            alert("Wpisz nazwę produktu :)");
+            return;
+        }
         this.htmlElements.listImg.classList.add('hidden');
         const product = document.createElement('li');
         product.classList.add('list-panel--with-products--li');
