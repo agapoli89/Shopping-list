@@ -33,19 +33,23 @@ export class Product {
     putProductInBasket(e) {
         e.target.parentElement.parentElement.classList.toggle("crossed-out");
 
-        if (e.target.parentElement.parentElement.classList.contains("crossed-out")) {
+ /*        if (e.target.parentElement.parentElement.classList.contains("crossed-out")) {
             shoppingList.showInTheBasketList().push(e.target);
         } else {
             console.log('takeFromBasket');
-        }
+        } */
         
         shoppingList.showListsLength();
     }
 
     delateProduct(e) {
+        shoppingList.addDataIndex();
         const index = e.target.parentElement.parentElement.dataset.index;
+        
+        shoppingList.showShoppingList().splice(index, 1);
         e.target.parentElement.parentElement.remove();
-        shoppingList.showInTheBasketList().splice(index,1);
+        
+        shoppingList.showListsLength();
     }
 }
 
