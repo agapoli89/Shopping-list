@@ -32,12 +32,6 @@ export class Product {
 
     putProductInBasket(e) {
         e.target.parentElement.parentElement.classList.toggle("crossed-out");
-
- /*        if (e.target.parentElement.parentElement.classList.contains("crossed-out")) {
-            shoppingList.showInTheBasketList().push(e.target);
-        } else {
-            console.log('takeFromBasket');
-        } */
         
         shoppingList.showListsLength();
     }

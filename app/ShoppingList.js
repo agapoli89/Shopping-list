@@ -8,8 +8,7 @@ export class ShoppingList {
 
     showListsLength() {
         document.getElementById('js-number-to-buy').textContent = this.showShoppingList().length;
-       /*  document.getElementById('js-number-in-basket').textContent = this.showInTheBasketList().length;
-        console.log(this.showShoppingList()); */
+      
         const inTheBasketList = [];
         this.showShoppingList().forEach(product => {
             if (product.classList.contains('crossed-out')) {
