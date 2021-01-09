@@ -1,4 +1,8 @@
 export class ShoppingList {
+    htmlElements = {
+        listImg: document.getElementById('js-list-panel--start'),
+    }
+
     constructor() {
         const _shoppingList = [];
         /* const _inTheBasketList = []; */
@@ -16,6 +20,12 @@ export class ShoppingList {
             }
         });
         document.getElementById('js-number-in-basket').textContent = inTheBasketList.length;
+
+        if (this.showShoppingList().length) {
+            this.htmlElements.listImg.classList.add('hidden');
+        } else {
+            this.htmlElements.listImg.classList.remove('hidden'); 
+        }
     }
 
     addDataIndex() {

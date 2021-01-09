@@ -2,7 +2,6 @@ import {ShoppingList} from './ShoppingList.js';
 
 export class Product {
     htmlElements = {
-        listImg: document.getElementById('js-list-panel--start'),
         addUl: document.getElementById('js-list-panel-ul'),
     }
 
@@ -17,7 +16,6 @@ export class Product {
             alert("Wpisz nazwę produktu :)");
             return;
         }
-        this.htmlElements.listImg.classList.add('hidden');
         const product = document.createElement('li');
         product.classList.add('list-panel--with-products--li');
         product.innerHTML = this.name + '<div><i class="icon icon-basket"></i><i class="icon icon-trash-empty"></i></div>';
