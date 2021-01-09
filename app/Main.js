@@ -6,17 +6,16 @@ export class Main {
     htmlElements = {
         addInput: document.getElementById('js-add-product-input'),
         addBtn: document.getElementById('js-add-product-btn'),   
-        listProducts: document.getElementById('js-list-panel--with-products'),
         numberInBasket: document.getElementById('js-number-in-basket'),
     }
     constructor() {
         this.suggestions = new Suggestions();
-        this.localStorage = new LocalStorage();
+        this.localStorageObj = new LocalStorage();
     }
 
 
     init() {
-        this.localStorage.getProducts();
+        this.localStorageObj.getProducts();
         this.htmlElements.addInput.addEventListener('input', (event) => this.suggestions.searchProduct(event));
         this.htmlElements.addBtn.addEventListener('click', (event) => {
             event.preventDefault();
