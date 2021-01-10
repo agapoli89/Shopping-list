@@ -1,4 +1,5 @@
 import {ShoppingList} from './ShoppingList.js';
+import {LocalStorage} from './LocalStorage.js';
 
 export class Product {
     htmlElements = {
@@ -26,12 +27,14 @@ export class Product {
         shoppingList.showShoppingList().push(product);
         shoppingList.addDataIndex();
         shoppingList.showListsLength();
+        localStorageObj.setProducts();
     }
 
     putProductInBasket(e) {
         e.target.parentElement.parentElement.classList.toggle("crossed-out");
         
         shoppingList.showListsLength();
+        localStorageObj.setProducts();
     }
 
     delateProduct(e) {
@@ -42,7 +45,9 @@ export class Product {
         e.target.parentElement.parentElement.remove();
         
         shoppingList.showListsLength();
+        localStorageObj.setProducts();
     }
 }
 
 const shoppingList = new ShoppingList();
+const localStorageObj = new LocalStorage();
