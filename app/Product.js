@@ -8,6 +8,7 @@ export class Product {
 
     constructor (name, /* category="produkt", amount=1 */) {
     this.name = name;
+    this.localStorageObj = new LocalStorage();
 /*     this.category = category;
     this.amount = amount; */
     }
@@ -27,14 +28,15 @@ export class Product {
         shoppingList.showShoppingList().push(product);
         shoppingList.addDataIndex();
         shoppingList.showListsLength();
-        localStorageObj.setProducts();
+        console.log(shoppingList.showShoppingList()); 
+        this.localStorageObj.setProducts(); 
     }
 
     putProductInBasket(e) {
         e.target.parentElement.parentElement.classList.toggle("crossed-out");
         
         shoppingList.showListsLength();
-        localStorageObj.setProducts();
+        this.localStorageObj.setProducts(); 
     }
 
     delateProduct(e) {
@@ -45,9 +47,9 @@ export class Product {
         e.target.parentElement.parentElement.remove();
         
         shoppingList.showListsLength();
-        localStorageObj.setProducts();
+        this.localStorageObj.setProducts(); ;
     }
 }
 
 const shoppingList = new ShoppingList();
-const localStorageObj = new LocalStorage();
+

@@ -10,12 +10,12 @@ export class Main {
     }
     constructor() {
         this.suggestions = new Suggestions();
-        this.localStorageObj = new LocalStorage();
+        /* this.localStorageObj = new LocalStorage(); */
     }
 
 
     init() {
-        this.localStorageObj.getProducts();
+        /* this.localStorageObj.getProducts(); */
         this.htmlElements.addInput.addEventListener('input', (event) => this.suggestions.searchProduct(event));
         this.htmlElements.addBtn.addEventListener('click', (event) => {
             event.preventDefault();

@@ -1,6 +1,9 @@
-import { ShoppingList } from "./ShoppingList.js";
+import { Product } from "./Product.js";
 
-export class LocalStorage {
+export class LocalStorage extends Product {
+    constructor() {
+        super();
+    }
     htmlElements = {
         listOfProducts: document.getElementById('js-list-panel--with-products'),
     }
@@ -15,12 +18,13 @@ export class LocalStorage {
     }
 
     setProducts() {
-        localStorage.setItem('productsToBuy', this.htmlElements.listOfProducts.innerHTML);
+        /* localStorage.setItem('productsToBuy', this.htmlElements.listOfProducts.innerHTML); */
 
        /*  if (!shoppingList.showShoppingList().length) {
             localStorage.removeItem('productsToBuy');
         } */
+        console.log(shoppingList.showShoppingList());
+        
+        localStorage.setItem('productsToBuy', JSON.stringify(this.showShoppingList()))
     }
 }
-
-const shoppingList = new ShoppingList();
