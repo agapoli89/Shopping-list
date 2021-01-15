@@ -1,6 +1,6 @@
 import {Suggestions} from './Suggestions.js'
 import {Product} from './Product.js'
-import {LocalStorage} from './LocalStorage.js'
+import { LocalStorage } from './LocalStorage.js';
 
 export class Main {
     htmlElements = {
@@ -10,12 +10,12 @@ export class Main {
     }
     constructor() {
         this.suggestions = new Suggestions();
-        /* this.localStorageObj = new LocalStorage(); */
+        this.getLocalStorage = new LocalStorage();
     }
 
 
     init() {
-        /* this.localStorageObj.getProducts(); */
+        this.getLocalStorage.getProducts();
         this.htmlElements.addInput.addEventListener('input', (event) => this.suggestions.searchProduct(event));
         this.htmlElements.addBtn.addEventListener('click', (event) => {
             event.preventDefault();

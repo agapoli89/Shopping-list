@@ -29,14 +29,14 @@ export class Product {
         shoppingList.addDataIndex();
         shoppingList.showListsLength();
         console.log(shoppingList.showShoppingList()); 
-        this.localStorageObj.setProducts(); 
+        this.localStorageObj.setProducts(shoppingList.showShoppingList()); 
     }
 
     putProductInBasket(e) {
         e.target.parentElement.parentElement.classList.toggle("crossed-out");
         
         shoppingList.showListsLength();
-        this.localStorageObj.setProducts(); 
+        /* this.localStorageObj.setProducts();  */
     }
 
     delateProduct(e) {
@@ -47,7 +47,7 @@ export class Product {
         e.target.parentElement.parentElement.remove();
         
         shoppingList.showListsLength();
-        this.localStorageObj.setProducts(); ;
+        /* this.localStorageObj.setProducts(); */
     }
 }
 
