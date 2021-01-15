@@ -26,9 +26,9 @@ export class LocalStorage /* extends Product */ {
         /* localStorage.setItem('productsToBuy', products); */
         const productsJson = JSON.stringify(products);
         console.log(products);
-        console.log(products[0].className);
+/*         console.log(products[0].className);
         
-        console.log(productsJson);
+        console.log(productsJson); */
 
        if (!products.length) {
             localStorage.removeItem('productsToBuy');
