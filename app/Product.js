@@ -36,7 +36,7 @@ export class Product {
         e.target.parentElement.parentElement.classList.toggle("crossed-out");
         
         shoppingList.showListsLength();
-        /* this.localStorageObj.setProducts();  */
+        this.localStorageObj.setProducts(shoppingList.showShoppingList());
     }
 
     delateProduct(e) {
@@ -47,7 +47,7 @@ export class Product {
         e.target.parentElement.parentElement.remove();
         
         shoppingList.showListsLength();
-        /* this.localStorageObj.setProducts(); */
+        this.localStorageObj.setProducts(shoppingList.showShoppingList());
     }
 }
 

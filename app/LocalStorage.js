@@ -1,19 +1,20 @@
 import { Product } from "./Product.js";
 import { ShoppingList } from "./ShoppingList.js";
 
-export class LocalStorage /* extends Product */ {
-    /* constructor() {
-        super();
-    } */
+export class LocalStorage  {
+  
     htmlElements = {
         listOfProducts: document.getElementById('js-list-panel--with-products'),
+        listImg: document.getElementById('js-list-panel--start'),
     }
 
     getProducts() {
-       if (localStorage.getItem('productsToBuy') !== null) { 
-            /* this.htmlElements.listOfProducts.innerHTML */ 
-            const retrievedArr = JSON.parse(localStorage.getItem('productsToBuy'));
-            console.log(retrievedArr);
+       if (localStorage.getItem('productsToBuy') !== null) {    
+            const retrievedArr = localStorage.getItem('productsToBuy');
+            
+            this.htmlElements.listOfProducts.innerHTML = retrievedArr;
+
+            this.htmlElements.listImg.classList.add('hidden');
             
                        
        } else {
@@ -22,19 +23,9 @@ export class LocalStorage /* extends Product */ {
     }
 
     setProducts(products) {
-         
-        /* localStorage.setItem('productsToBuy', products); */
-        const productsJson = JSON.stringify(products);
-        console.log(products);
-/*         console.log(products[0].className);
-        
-        console.log(productsJson); */
+           localStorage.setItem('productsToBuy', this.htmlElements.listOfProducts.innerHTML);
 
-       if (!products.length) {
-            localStorage.removeItem('productsToBuy');
-        }
-        localStorage.setItem('productsToBuy', productsJson);
-        
+           if (products.length <= 0) localStorage.removeItem('productsToBuy')
         
     }
 }
