@@ -22,6 +22,10 @@ export class Product {
         product.classList.add('list-panel--with-products--li');
         product.innerHTML = this.name + '<div><i class="icon icon-basket"></i><i class="icon icon-trash-empty"></i></div>';
         this.htmlElements.addUl.appendChild(product);
+        this.addPropertiesToTheProduct(product);
+    }
+
+    addPropertiesToTheProduct(product) {
         product.children[0].children[0].addEventListener('click', this.putProductInBasket);
         product.children[0].children[1].addEventListener('click', this.delateProduct);
 
