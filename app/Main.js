@@ -16,6 +16,7 @@ export class Main {
 
     init() {
         this.getLocalStorage.getProducts();
+        this.addProductsFromLS();
         this.htmlElements.addInput.addEventListener('input', (event) => this.suggestions.searchProduct(event));
         this.htmlElements.addBtn.addEventListener('click', (event) => {
             event.preventDefault();
@@ -23,6 +24,15 @@ export class Main {
             this.htmlElements.addInput.value = "";
             product.createProduct();            
         });
+    }
+
+    addProductsFromLS() {
+        const productsFromLS = document.querySelectorAll('li');
+        productsFromLS.forEach(product => {
+            const productFromLS = new Product(product.outerText);
+            productFromLS.addPropertiesToTheProduct(product);
+        });
+        
     }
 
 }

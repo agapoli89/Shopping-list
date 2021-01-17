@@ -14,8 +14,7 @@ export class LocalStorage  {
             
             this.htmlElements.listOfProducts.innerHTML = retrievedArr;
 
-            this.htmlElements.listImg.classList.add('hidden');
-            
+            this.htmlElements.listImg.classList.add('hidden');    
                        
        } else {
            console.log('nothing in LS');
