@@ -27,7 +27,7 @@ export class Main {
     }
 
     addProductsFromLS() {
-        const productsFromLS = document.querySelectorAll('li');
+        const productsFromLS = document.querySelectorAll('.list-panel--with-products li');
         productsFromLS.forEach(product => {
             const productFromLS = new Product(product.outerText);
             productFromLS.addPropertiesToTheProduct(product);
