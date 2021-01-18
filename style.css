@@ -56,6 +56,11 @@ body {
     background-color: white;
 }
 
+.add-product-panel__input[type="text"] {
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+
 .add-product-panel__input--li {
     list-style: none;
     color: black;
