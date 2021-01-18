@@ -31,8 +31,7 @@ export class Main {
         productsFromLS.forEach(product => {
             const productFromLS = new Product(product.outerText);
             productFromLS.addPropertiesToTheProduct(product);
-        });
-        
+        });  
     }
 
 }

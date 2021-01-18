@@ -5,9 +5,7 @@ export class ShoppingList {
 
     constructor() {
         const _shoppingList = [];
-        /* const _inTheBasketList = []; */
         this.showShoppingList = () => _shoppingList;
-      /*   this.showInTheBasketList = () => _inTheBasketList; */
     }
 
     showListsLength() {
