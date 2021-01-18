@@ -1,6 +1,3 @@
-import { Product } from "./Product.js";
-import { ShoppingList } from "./ShoppingList.js";
-
 export class LocalStorage  {
   
     htmlElements = {
