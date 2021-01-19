@@ -19,7 +19,7 @@ export class LocalStorage  {
         if (localStorage.getItem('suggestionsToBuy') !== null) {
             const retrievedArr = JSON.parse(localStorage.getItem('suggestionsToBuy'));
             return retrievedArr;
-        }
+        } else return [];
     }
 
     setProducts(products) {
