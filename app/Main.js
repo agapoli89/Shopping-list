@@ -16,6 +16,7 @@ export class Main {
 
     init() {
         this.getLocalStorage.getProducts();
+        this.getLocalStorage.getSuggestions();
         this.addProductsFromLS();
         this.htmlElements.addInput.addEventListener('input', (event) => this.suggestions.searchProduct(event));
         this.htmlElements.addBtn.addEventListener('click', (event) => {
