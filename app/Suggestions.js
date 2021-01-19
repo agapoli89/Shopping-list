@@ -12,11 +12,12 @@ export class Suggestions {
     searchProduct(event) {
         const searchedWord = event.target.value.toLowerCase();
         const allSuggestions = this.showSuggestions();
+        console.log(allSuggestions);
+        
         
         const matchingSugg = allSuggestions.filter(suggestion => suggestion.includes(searchedWord));
         console.log(matchingSugg);
         
-
         if (matchingSugg.length <= 0) return;
 
         matchingSugg.forEach(suggestion => {
