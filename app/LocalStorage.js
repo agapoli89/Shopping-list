@@ -11,11 +11,15 @@ export class LocalStorage  {
             
             this.htmlElements.listOfProducts.innerHTML = retrievedArr;
 
-            this.htmlElements.listImg.classList.add('hidden');    
-                       
-       } else {
-           console.log('nothing in LS');
-       }
+            this.htmlElements.listImg.classList.add('hidden');                    
+       } else return
+    }
+
+    getSuggestions() {
+        if (localStorage.getItem('suggestionsToBuy') !== null) {
+            const retrievedArr = JSON.parse(localStorage.getItem('suggestionsToBuy'));
+            return retrievedArr;
+        }
     }
 
     setProducts(products) {
@@ -23,6 +27,11 @@ export class LocalStorage  {
 
            if (products.length <= 0) localStorage.removeItem('productsToBuy')
         
+    }
+
+    setSuggestions(suggestions) {
+        console.log(suggestions);
+        localStorage.setItem('suggestionsToBuy', JSON.stringify(suggestions))
     }
 }
 
