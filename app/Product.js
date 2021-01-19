@@ -1,5 +1,6 @@
 import {ShoppingList} from './ShoppingList.js';
 import {LocalStorage} from './LocalStorage.js';
+import {Suggestions} from './Suggestions.js';
 
 export class Product {
     htmlElements = {
@@ -32,6 +33,11 @@ export class Product {
         shoppingList.addDataIndex();
         shoppingList.showListsLength(); 
         localStorageObj.setProducts(shoppingList.showShoppingList()); 
+        
+        if (!suggestions.showSuggestions().includes(this.name.toLowerCase())) {
+        suggestions.showSuggestions().push(this.name.toLowerCase());
+        localStorageObj.setSuggestions(suggestions.showSuggestions());
+        }
     }
 
     putProductInBasket(e) {
@@ -55,4 +61,5 @@ export class Product {
 
 const shoppingList = new ShoppingList();
 const localStorageObj = new LocalStorage();
+const suggestions = new Suggestions();
 
