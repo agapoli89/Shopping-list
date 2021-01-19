@@ -68,6 +68,11 @@ body {
     margin-top: 5px;
 }
 
+.add-product-panel__input--li:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
 .add-product-panel__btn {
     height: 30px;
     width: 50vw;
