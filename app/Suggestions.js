@@ -17,10 +17,9 @@ export class Suggestions {
         const matchingSugg = allSuggestions.filter(suggestion => suggestion.includes(searchedWord));
         console.log(matchingSugg);
 
-        Array.from(document.querySelectorAll('.add-product-panel__input--li')).map(li => {
+        document.querySelectorAll('.add-product-panel__input--li').forEach((li) => {
             if(!li.innerText.includes(searchedWord)) {
-                li.remove();
-                console.log('remove');   
+                li.remove(); 
             }
         });
 
@@ -30,7 +29,7 @@ export class Suggestions {
             return;
         };
 
-        matchingSugg.forEach(suggestion => {
+        matchingSugg.forEach((suggestion) => {
                 const liToCheck = Array.from(document.querySelectorAll('.add-product-panel__input--li')).map(li => {
                     return li.innerText;
                 });
@@ -43,13 +42,15 @@ export class Suggestions {
                 suggLi.textContent = suggestion;
                 this.htmlElements.searchUl.appendChild(suggLi);
                 suggLi.addEventListener('click', this.chooseProduct);
-            });
 
-            console.log(window.innerWidth);
-            
-            if (window.innerWidth < 700) {
-                this.htmlElements.btn.classList.add('hidden')
-            }
+                if (window.innerWidth < 700) {
+                    this.htmlElements.btn.classList.add('hidden');
+                }          
+        });
+
+        if (matchingSugg.length <= 0) {
+            this.htmlElements.btn.classList.remove('hidden');
+        } 
     }
 
     chooseProduct(e) {
