@@ -14,26 +14,42 @@ export class Suggestions {
         const allSuggestions = this.showSuggestions();
         console.log(allSuggestions);
         
-        
         const matchingSugg = allSuggestions.filter(suggestion => suggestion.includes(searchedWord));
         console.log(matchingSugg);
-        
-        if (matchingSugg.length <= 0) return;
 
-        matchingSugg.forEach(suggestion => {
-            const suggLi = document.createElement('li');
-            suggLi.classList.add('add-product-panel__input');
-            suggLi.classList.add('add-product-panel__input--li');
-            suggLi.textContent = suggestion;
-            this.htmlElements.searchUl.appendChild(suggLi);
-            suggLi.addEventListener('click', this.chooseProduct);
+        Array.from(document.querySelectorAll('.add-product-panel__input--li')).map(li => {
+            if(!li.innerText.includes(searchedWord)) {
+                li.remove();
+                console.log('remove');   
+            }
         });
 
-        console.log(window.innerWidth);
-        
-        if (window.innerWidth < 700) {
-            this.htmlElements.btn.classList.add('hidden')
-        }
+        if (searchedWord === "") {
+            document.querySelectorAll('.add-product-panel__input--li').forEach(li => li.remove());
+            document.getElementById('js-add-product-btn').classList.remove('hidden');
+            return;
+        };
+
+        matchingSugg.forEach(suggestion => {
+                const liToCheck = Array.from(document.querySelectorAll('.add-product-panel__input--li')).map(li => {
+                    return li.innerText;
+                });
+                
+                if (liToCheck.includes(suggestion)) return;
+                
+                const suggLi = document.createElement('li');
+                suggLi.classList.add('add-product-panel__input');
+                suggLi.classList.add('add-product-panel__input--li');
+                suggLi.textContent = suggestion;
+                this.htmlElements.searchUl.appendChild(suggLi);
+                suggLi.addEventListener('click', this.chooseProduct);
+            });
+
+            console.log(window.innerWidth);
+            
+            if (window.innerWidth < 700) {
+                this.htmlElements.btn.classList.add('hidden')
+            }
     }
 
     chooseProduct(e) {
