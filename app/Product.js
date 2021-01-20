@@ -35,8 +35,9 @@ export class Product {
         localStorageObj.setProducts(shoppingList.showShoppingList()); 
         
         if (!suggestions.showSuggestions().includes(this.name.toLowerCase())) {
-        suggestions.showSuggestions().push(this.name.toLowerCase());
-        localStorageObj.setSuggestions(suggestions.showSuggestions());
+            suggestions.showSuggestions().push(this.name.toLowerCase());
+            localStorageObj.setSuggestions(suggestions.showSuggestions());
+            localStorageObj.getSuggestions();
         }
     }
 
