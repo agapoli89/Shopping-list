@@ -1,0 +1,11 @@
+$darkgray: #313C40;
+$lightgray: #D2D6D9;
+$maroon-tone: #8C182D;
+$light-maroon-tone: #BF3B3B;
+$additional: #BF8969;
+
+@mixin flexSettings($align: center) {
+    display: flex;
+    justify-content: center;
+    align-items: $align;
+}

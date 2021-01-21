@@ -1,0 +1,161 @@
+@import 'media-queries';
+@import 'variables';
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    @include flexSettings(stretch);
+    background-color: $darkgray;
+    color: $lightgray;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+    margin-top: 30px;
+    @include flexSettings(stretch);
+    flex-wrap: wrap;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    h1 {
+        font-size: 30px;
+        margin-bottom: 40px;
+    }
+}
+
+.main {
+    max-width: 70vw;
+    @include tabletMax {
+        max-width: calc(80vw + 30px);
+    }
+    @include desktop {
+        max-width: calc(60vw + 30px);
+    }
+}
+
+.add-product-panel {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+.add-product-panel__input {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 70vw;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    @include tabletMax {
+        width: 50vw;
+        margin-right: 20px;
+    }
+    @include desktop {
+        width: 40vw;
+        margin-right: 20px;
+    }
+}
+
+.add-product-panel__input[type=text] {
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+
+.add-product-panel__input--li {
+    list-style: none;
+    color: black;
+    padding-left: 10px;
+    margin-top: 5px;
+    &:hover {
+        background-color: lightgrey;
+        cursor: pointer;
+    }
+}
+
+.add-product-panel__btn {
+    height: 30px;
+    width: 50vw;
+    border-radius: 5px;
+    background-color: $light-maroon-tone;
+    color: $lightgray;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    @include tabletMax {
+        width: 30vw;
+        margin-top: 0;
+        margin-left: 10px;
+    }
+    @include desktop {
+        width: 20vw;
+    }
+}
+
+.list-panel--start {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 250px;
+    height: 250px;
+    background-image: url(../img/trolley.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    @include tabletMin {
+        background-image: url(../img/trolley500.png);
+    }
+    @include tabletMax {
+        width: 400px;
+        height: 400px;
+        margin-top: 50px;
+        background-image: url(../img/trolley700.png);
+    }
+}
+
+.list-panel--with-products {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: $lightgray;
+}
+
+.list-panel--with-products--li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    font-size: 30px;
+}
+
+.icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.summary {
+    margin-left: 40px;
+    margin-bottom: 20px;
+    margin-right: auto;
+    color: grey;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.crossed-out {
+    text-decoration: line-through;
+}
