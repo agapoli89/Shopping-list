@@ -30,7 +30,7 @@ export class LocalStorage  {
     }
 
     setSuggestions(suggestions) {
-        localStorage.setItem('suggestionsToBuy', JSON.stringify(suggestions))
+        localStorage.setItem('suggestionsToBuy', JSON.stringify(suggestions));
     }
 }
 
