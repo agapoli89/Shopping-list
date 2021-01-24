@@ -38,6 +38,7 @@ export class Product {
             suggestions.showSuggestions().push(this.name.toLowerCase());
             localStorageObj.setSuggestions(suggestions.showSuggestions());
             localStorageObj.getSuggestions();
+            document.getElementById('js-add-product-input').addEventListener('input', (event) => suggestions.searchProduct(event));
         }
     }
 
