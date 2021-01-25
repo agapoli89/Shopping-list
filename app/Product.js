@@ -37,7 +37,7 @@ export class Product extends UI {
             suggestions.showSuggestions().push(this.name.toLowerCase());
             localStorageObj.setSuggestions(suggestions.showSuggestions());
             localStorageObj.getSuggestions();
-            this.getElement(this.uiSelectors.input).addEventListener('input', (event) => suggestions.searchProduct(event));
+            this.getElement(this.uiSelectors.input).addEventListener('input', suggestions.searchProduct);
         }
     }
 
