@@ -1,6 +1,6 @@
 import {Suggestions} from './Suggestions.js'
 import {Product} from './Product.js'
-import { LocalStorage } from './LocalStorage.js';
+import {LocalStorage} from './LocalStorage.js';
 import {UI} from './UI.js';
 
 class Main extends UI {
