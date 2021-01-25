@@ -9,6 +9,7 @@ export class UI {
       divWithImage: 'js-list-panel--start',
       ulAdd: 'js-list-panel-ul',
       ulSearch: 'js-add-product-ul',
+      liSuggestions: '.add-product-panel__input--li',
   }  
   getElement(selector) {
       return document.getElementById(selector)
