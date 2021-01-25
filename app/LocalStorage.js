@@ -1,17 +1,14 @@
-export class LocalStorage  {
-  
-    htmlElements = {
-        listOfProducts: document.getElementById('js-list-panel--with-products'),
-        listImg: document.getElementById('js-list-panel--start'),
-    }
+import {UI} from './UI.js';
+
+export class LocalStorage  extends UI {
 
     getProducts() {
        if (localStorage.getItem('productsToBuy') !== null) {    
             const retrievedArr = localStorage.getItem('productsToBuy');
             
-            this.htmlElements.listOfProducts.innerHTML = retrievedArr;
+            this.getElement(this.uiSelectors.divWithProducts).innerHTML = retrievedArr;
 
-            this.htmlElements.listImg.classList.add('hidden');                    
+            this.getElement(this.uiSelectors.divWithImage).classList.add('hidden');                    
        } else return
     }
 
@@ -23,7 +20,7 @@ export class LocalStorage  {
     }
 
     setProducts(products) {
-           localStorage.setItem('productsToBuy', this.htmlElements.listOfProducts.innerHTML);
+           localStorage.setItem('productsToBuy', this.getElement(this.uiSelectors.divWithProducts).innerHTML);
 
            if (products.length <= 0) localStorage.removeItem('productsToBuy')
         
