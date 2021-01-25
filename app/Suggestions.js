@@ -1,34 +1,34 @@
 import { LocalStorage } from "./LocalStorage.js";
+import {UI} from './UI.js';
 
-export class Suggestions {
-    htmlElements = {
-        searchUl: document.getElementById('js-add-product-ul'),
-        btn: document.getElementById('js-add-product-btn'),
-    }
+export class Suggestions extends UI {
     constructor() {
-        const _listOfSuggestions = localStorageObj.getSuggestions();
+        super();
+        this.localStorageObj = new LocalStorage();
+        const _listOfSuggestions = this.localStorageObj.getSuggestions();
         this.showSuggestions = () => _listOfSuggestions;
     }
-    searchProduct(event) {
+    searchProduct = (event) => {
         const searchedWord = event.target.value.toLowerCase();
+        
         const allSuggestions = this.showSuggestions();
-
+        
         const matchingSugg = allSuggestions.filter(suggestion => suggestion.includes(searchedWord));
 
-        document.querySelectorAll('.add-product-panel__input--li').forEach((li) => {
+        this.getElements(this.uiSelectors.liSuggestions).forEach((li) => {
             if(!li.innerText.includes(searchedWord)) {
                 li.remove(); 
             }
         });
 
         if (searchedWord === "") {
-            document.querySelectorAll('.add-product-panel__input--li').forEach(li => li.remove());
-            document.getElementById('js-add-product-btn').classList.remove('hidden');
+            this.getElements(this.uiSelectors.liSuggestions).forEach(li => li.remove());
+            this.getElement(this.uiSelectors.btn).classList.remove('hidden');
             return;
         };
 
         matchingSugg.forEach((suggestion) => {
-                const liToCheck = Array.from(document.querySelectorAll('.add-product-panel__input--li')).map(li => {
+                const liToCheck = Array.from(this.getElements(this.uiSelectors.liSuggestions)).map(li => {
                     return li.innerText;
                 });
                 
@@ -38,25 +38,23 @@ export class Suggestions {
                 suggLi.classList.add('add-product-panel__input');
                 suggLi.classList.add('add-product-panel__input--li');
                 suggLi.textContent = suggestion;
-                this.htmlElements.searchUl.appendChild(suggLi);
+                this.getElement(this.uiSelectors.ulSearch).appendChild(suggLi);
                 suggLi.addEventListener('click', this.chooseProduct);
 
                 if (window.innerWidth < 700) {
-                    this.htmlElements.btn.classList.add('hidden');
+                    this.getElement(this.uiSelectors.btn).classList.add('hidden');
                 }          
         });
 
         if (matchingSugg.length <= 0) {
-            this.htmlElements.btn.classList.remove('hidden');
+            this.getElement(this.uiSelectors.btn).classList.remove('hidden');
         } 
     }
 
-    chooseProduct(e) {
-        document.getElementById('js-add-product-input').value = e.target.textContent;
-        document.getElementById('js-add-product-ul').innerHTML = "";
-        document.getElementById('js-add-product-btn').classList.remove('hidden');
+    chooseProduct = (e) => {
+        this.getElement(this.uiSelectors.input).value = e.target.textContent;
+        this.getElement(this.uiSelectors.ulSearch).innerHTML = "";
+        this.getElement(this.uiSelectors.btn).classList.remove('hidden');
     }
 
 }
-
-const localStorageObj = new LocalStorage();
