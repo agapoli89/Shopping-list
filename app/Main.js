@@ -14,7 +14,7 @@ class Main extends UI {
         this.getLocalStorage.getProducts();
         this.getLocalStorage.getSuggestions();
         this.addProductsFromLS();
-        this.getElement(this.uiSelectors.input).addEventListener('input', (event) => this.suggestions.searchProduct(event));
+        this.getElement(this.uiSelectors.input).addEventListener('input', this.suggestions.searchProduct);
         this.getElement(this.uiSelectors.btn).addEventListener('click', (event) => {
             event.preventDefault();
             const product = new Product(this.getElement(this.uiSelectors.input).value);
