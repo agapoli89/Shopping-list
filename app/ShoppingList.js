@@ -1,15 +1,14 @@
-export class ShoppingList {
-    htmlElements = {
-        listImg: document.getElementById('js-list-panel--start'),
-    }
+import {UI} from './UI.js';
 
+export class ShoppingList extends UI{
     constructor() {
+        super();
         const _shoppingList = [];
         this.showShoppingList = () => _shoppingList;
     }
 
     showListsLength() {
-        document.getElementById('js-number-to-buy').textContent = this.showShoppingList().length;
+        this.getElement(this.uiSelectors.numberToBuy).textContent = this.showShoppingList().length;
       
         const inTheBasketList = [];
         this.showShoppingList().forEach(product => {
@@ -17,12 +16,12 @@ export class ShoppingList {
                 inTheBasketList.push(product);
             }
         });
-        document.getElementById('js-number-in-basket').textContent = inTheBasketList.length;
+        this.getElement(this.uiSelectors.inBasket).textContent = inTheBasketList.length;
 
         if (this.showShoppingList().length) {
-            this.htmlElements.listImg.classList.add('hidden');
+            this.getElement(this.uiSelectors.divWithImage).classList.add('hidden');
         } else {
-            this.htmlElements.listImg.classList.remove('hidden'); 
+            this.getElement(this.uiSelectors.divWithImage).classList.remove('hidden'); 
         }
     }
 
