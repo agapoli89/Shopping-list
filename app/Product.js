@@ -26,7 +26,6 @@ export class Product extends UI {
                 }
             }
         }
-        console.log(shoppingList.showShoppingList());
         
         const product = document.createElement('li');
         product.classList.add('list-panel--with-products--li');
