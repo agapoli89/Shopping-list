@@ -17,6 +17,17 @@ export class Product extends UI {
             alert("Wpisz nazwę produktu :)");
             return;
         }
+
+        for (let i=0; i<shoppingList.showShoppingList().length; i++) {
+            if (shoppingList.showShoppingList()[i].innerText.toLowerCase().includes(this.name.toLowerCase())) {
+                if (confirm(`${this.name} jest już na Twojej liście. Czy mimo wszystko chcesz dodać ten produkt?`)) {
+                } else {
+                    return;
+                }
+            }
+        }
+        console.log(shoppingList.showShoppingList());
+        
         const product = document.createElement('li');
         product.classList.add('list-panel--with-products--li');
         product.innerHTML = this.name + '<div><i class="icon icon-basket"></i><i class="icon icon-trash-empty"></i></div>';
