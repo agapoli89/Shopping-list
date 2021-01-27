@@ -17,7 +17,11 @@ export class Product extends UI {
             alert("Wpisz nazwę produktu :)");
             return;
         }
-
+        if (!/[a-z]/.test(this.name)) {
+            alert(`"${this.name}" to nie jest nazwa produktu. Proszę wpisz poprawną nazwę.`);
+            return;
+        }
+        
         for (let i=0; i<shoppingList.showShoppingList().length; i++) {
             if (shoppingList.showShoppingList()[i].innerText.toLowerCase().includes(this.name.toLowerCase())) {
                 if (confirm(`${this.name} jest już na Twojej liście. Czy mimo wszystko chcesz dodać ten produkt?`)) {
